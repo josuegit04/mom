@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta para Mamá</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <div class="contenedor" onclick="abrirSobre()">
+    <div class="carta" id="carta">
+      <div class="cara frente">
+        <div class="sobre">
+          <p>Para: Mamá</p>
+          <p>De: Josué</p>
+        </div>
+      </div>
+      <div class="cara atras">
+        <div class="contenido-carta" id="contenidoCarta">
+          <h2>Querida Mamá</h2>
+          <p>
+            Gracias por estar siempre a mi lado, por tu amor infinito y tus abrazos que curan el alma.
+            ¡Feliz Día de la Madre!
+          </p>
+          <br>
+          <p id="finalTexto">¡Haz clic aquí para seguir!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="imagenes" class="imagenes">
+    <img src="foto1.jpg" alt="Foto 1" class="imagen" />
+    <img src="foto2.jpg" alt="Foto 2" class="imagen" />
+    <img src="foto3.jpg" alt="Foto 3" class="imagen" />
+    <img src="foto4.jpg" alt="Foto 4" class="imagen" />
+
+    <div class="brillo" style="left: 15%; animation-delay: 0s;"></div>
+    <div class="brillo" style="left: 45%; animation-delay: 2s;"></div>
+    <div class="brillo" style="left: 75%; animation-delay: 4s;"></div>
+    
+    <div class="particula" style="left: 20%; animation-delay: 1s;"></div>
+    <div class="particula" style="left: 50%; animation-delay: 3s;"></div>
+    <div class="particula" style="left: 80%; animation-delay: 5s;"></div>
+
+  </div>
+  <div id="tarjetaFinal" class="tarjeta-final">
+    <div class="contenido-final">
+      <h2>Te amo Mamá 💖</h2>
+      <p>Gracias por todo lo que haces por mí y por nosotros
+                      ¡Eres la mejor!</p>
+    </div>
+  </div>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>

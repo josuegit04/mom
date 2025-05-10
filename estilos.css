@@ -1,0 +1,215 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffafca;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.contenedor {
+  width: 650px;
+  height: 500px;
+  perspective: 1000px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carta {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 2s, opacity 1s;
+} 
+
+.cara {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.frente {
+  background: #ffccdd;
+  flex-direction: column;
+}
+
+.frente .sobre {
+  text-align: center;
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+
+.atras {
+  background: rgb(255, 213, 239);
+  transform: rotateY(180deg);
+  padding: 30px;
+}
+
+.contenido-carta {
+  text-align: center;
+  color: #333;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 30px;
+}
+
+.carta.abierta {
+  transform: rotateY(180deg);
+}
+
+.carta.desaparecer {
+  transform: translateX(100vw); /* Mover la carta fuera de la pantalla hacia la derecha */
+  opacity: 0; /* Desaparecer la carta */
+}
+
+.sobre {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 30px !important; 
+}
+
+#imagenes {
+  display: none;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-size: 400% 400%;
+  animation: fondoMovimiento 15s ease infinite;
+}
+
+
+.imagen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-150%, -50%); /* Inicia más a la izquierda */
+  transition: opacity 1s ease, transform 1s ease;
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.imagen.mostrar {
+  opacity: 1;
+  transform: translate(-50%, -50%); /* Llega al centro exacto */
+}
+
+.imagen.mover {
+  opacity: 0;
+  transform: translate(150%, -50%); /* Se va hacia la derecha */
+}
+
+
+
+.tarjeta-final {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  max-width: 90%;
+  padding: 40px;
+  background-color: #ffe0ec;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  animation: aparecer 1.5s ease forwards;
+}
+
+.contenido-final h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+  color: #d4006e;
+}
+
+.contenido-final p {
+  font-size: 1.3em;
+  color: #333;
+}
+
+.brillo {
+  position: absolute;
+  bottom: -10px;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 8px 4px rgba(255, 255, 255, 0.8);
+  animation: subirBrillo 6s infinite ease-in;
+  z-index: 0;
+}
+
+@keyframes subirBrillo {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+.particula {
+  position: absolute;
+  bottom: 0;
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 4px rgba(255, 255, 255, 0.8);
+  opacity: 1;
+  animation: subirParticula 5s linear infinite;
+  z-index: 0;
+}
+
+@keyframes subirParticula {
+  0% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes fondoMovimiento {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
